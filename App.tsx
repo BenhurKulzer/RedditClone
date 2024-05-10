@@ -3,6 +3,7 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
+
 import {ThemeProvider} from 'styled-components';
 
 import {Routes} from './src/routes';

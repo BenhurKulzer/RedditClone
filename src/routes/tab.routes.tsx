@@ -13,19 +13,13 @@ export function MyTabs() {
   const [isOnline, setIsOnline] = useState(false);
 
   useEffect(() => {
-    const listener = addEventListener(state => {
+    addEventListener(state => {
       return setIsOnline(state.isConnected ?? false);
     });
-
-    console.log(listener);
   }, []);
 
   return (
-    <Tab.Navigator
-      initialRouteName="New"
-      screenOptions={{
-        tabBarStyle: {backgroundColor: isOnline ? 'green' : 'red'},
-      }}>
+    <Tab.Navigator initialRouteName="New">
       <Tab.Screen name="New" component={New} />
 
       <Tab.Screen name="Top" component={Top} />

@@ -25,7 +25,7 @@ export default function Card({data}) {
   });
 
   return (
-    <Container>
+    <Container onPress={() => navigate('View', { url: data.data.permalink })}>
       <CardImage
         source={{
           uri:

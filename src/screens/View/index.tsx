@@ -7,7 +7,7 @@ export function View() {
 
   return (
     <WebView
-      source={{uri: 'https://i.redd.it/b7pzgys7gdzc1.jpeg'}}
+      source={{uri: `https://reddit.com${params.url}`}}
       mixedContentMode="compatibility"
       cacheEnabled
     />
