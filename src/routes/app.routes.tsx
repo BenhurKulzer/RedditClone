@@ -1,37 +1,14 @@
 import React from 'react';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Home} from '../screens/Home';
+import {View} from '../screens/View';
 
-const Tab = createMaterialTopTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export function AppRoutes() {
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
-        tabBarLabelStyle: {fontSize: 12},
-        tabBarStyle: {backgroundColor: 'powderblue'},
-      }}
-    >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{tabBarLabel: 'Home'}}
-      />
-
-      {/* <Tab.Screen
-        name="Notifications"
-        component={NotificationsScreen}
-        options={{ tabBarLabel: 'Updates' }}
-      />
-
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{ tabBarLabel: 'Profile' }}
-      /> */}
-    </Tab.Navigator>
+    <Stack.Navigator initialRouteName="View">
+      <Stack.Screen name="View" component={View} />
+    </Stack.Navigator>
   );
 }

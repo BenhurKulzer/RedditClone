@@ -6,6 +6,7 @@ export const Container = styled.TouchableOpacity`
   padding: 12px;
   border-radius: 12px;
 
+  align-items: center;
   flex-direction: row;
   background-color: ${({theme}) => theme.COLORS.BG_WHITE};
 `;
@@ -19,15 +20,15 @@ export const CardImage = styled.Image`
 
 export const CardWrapper = styled.View`
   flex: 1;
-  gap: 8px;
+  gap: 12px;
   flex-shrink: 1;
 `;
 
 export const CardWhen = styled.Text`
-  color: #000;
+  color: #999;
 
   text-align: right;
-  font-size: ${RFValue(12)}px;
+  font-size: ${RFValue(10)}px;
 `;
 
 export const CardTitle = styled.Text`
@@ -47,17 +48,20 @@ export const CardInfoWrapper = styled.View`
 export const CardInfoAuthor = styled.Text`
   color: #999;
 
-  font-size: ${RFValue(10)}px;
+  flex-shrink: 1;
+  font-size: ${RFValue(9)}px;
 `;
 
 export const CardInfoScore = styled.Text`
   color: #999;
 
-  font-size: ${RFValue(10)}px;
+  flex-shrink: 1;
+  font-size: ${RFValue(9)}px;
 `;
 
 export const CardInfoComments = styled.Text`
   color: #999;
 
-  font-size: ${RFValue(10)}px;
+  flex-shrink: 1;
+  font-size: ${RFValue(9)}px;
 `;

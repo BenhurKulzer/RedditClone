@@ -16,6 +16,7 @@ end
 
 target 'reddit' do
   config = use_native_modules!
+  pod 'react-native-pager-view', :path => '../node_modules/react-native-pager-view'
 
   use_react_native!(
     :path => config[:reactNativePath],

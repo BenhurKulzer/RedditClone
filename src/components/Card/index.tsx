@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {formatDistanceToNow} from 'date-fns';
 
 import {
@@ -14,13 +15,23 @@ import {
 } from './styles';
 
 export default function Card({data}) {
+  const {navigate} = useNavigation();
+
+  const fallbackImg =
+    'https://i.pinimg.com/736x/3a/0c/b1/3a0cb129f81e99e573807014327c1c4b.jpg';
+
   const relativeTime = formatDistanceToNow(new Date(data.data.created * 1000), {
     addSuffix: true,
   });
 
   return (
     <Container>
-      <CardImage source={{uri: data.data.thumbnail}} />
+      <CardImage
+        source={{
+          uri:
+            data.data.thumbnail !== 'nsfw' ? data.data.thumbnail : fallbackImg,
+        }}
+      />
 
       <CardWrapper>
         <CardWhen>{relativeTime}</CardWhen>
@@ -29,8 +40,8 @@ export default function Card({data}) {
 
         <CardInfoWrapper>
           <CardInfoAuthor>{data.data.author}</CardInfoAuthor>
-          <CardInfoScore>{data.data.score}</CardInfoScore>
-          <CardInfoComments>{data.data.num_comments}</CardInfoComments>
+          <CardInfoScore>Score: {data.data.score}</CardInfoScore>
+          <CardInfoComments>{data.data.num_comments} comments</CardInfoComments>
         </CardInfoWrapper>
       </CardWrapper>
     </Container>
