@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, ActivityIndicator, FlatList} from 'react-native';
+import {View, ActivityIndicator, FlatList, RefreshControl} from 'react-native';
 import {api} from '../../services/api';
 import Card from '../../components/Card';
 
@@ -10,7 +10,8 @@ export function Popular() {
   async function handleGetData() {
     try {
       setIsLoading(true);
-      const response = await api.get('r/pics/');
+
+      const response = await api.get('r/pics/controversial.json');
 
       setData(response.data.data.children);
     } catch (error) {
@@ -36,6 +37,12 @@ export function Popular() {
             showsVerticalScrollIndicator={false}
             keyExtractor={(_, index) => index.toString()}
             renderItem={({item}) => <Card data={item} />}
+            refreshControl={
+              <RefreshControl
+                refreshing={isLoading}
+                onRefresh={handleGetData}
+              />
+            }
           />
         </>
       )}
