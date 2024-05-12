@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {addEventListener} from '@react-native-community/netinfo';
+import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 import {Top} from '../screens/Top';
@@ -10,14 +9,6 @@ import {Popular} from '../screens/Popular';
 const Tab = createMaterialTopTabNavigator();
 
 export function MyTabs() {
-  const [isOnline, setIsOnline] = useState(false);
-
-  useEffect(() => {
-    addEventListener(state => {
-      return setIsOnline(state.isConnected ?? false);
-    });
-  }, []);
-
   return (
     <Tab.Navigator initialRouteName="New">
       <Tab.Screen name="New" component={New} />

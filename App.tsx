@@ -3,6 +3,7 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 
 import {ThemeProvider} from 'styled-components';
 
@@ -14,6 +15,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <Routes />
+
+        <Toast />
       </SafeAreaProvider>
     </ThemeProvider>
   );
