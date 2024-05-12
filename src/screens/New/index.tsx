@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {View, ActivityIndicator, FlatList} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, ActivityIndicator, FlatList, RefreshControl } from 'react-native';
 
-import {api} from '../../services/api';
+import { api } from '../../services/api';
 import Card from '../../components/Card';
 
 export function New() {
@@ -26,20 +26,28 @@ export function New() {
   }, []);
 
   return (
-    <View style={{flex: 1}}>
-      {isLoading ? (
+    <View style={{ flex: 1 }}>
+      {isLoading
+        ? (
         <ActivityIndicator size="large" />
-      ) : (
+          )
+        : (
         <>
           <FlatList
             data={data}
-            contentContainerStyle={{gap: 1}}
+            contentContainerStyle={{ gap: 1 }}
             showsVerticalScrollIndicator={false}
             keyExtractor={(_, index) => index.toString()}
-            renderItem={({item}) => <Card data={item} />}
+            renderItem={({ item }) => <Card data={item} />}
+            refreshControl={
+              <RefreshControl
+                refreshing={isLoading}
+                onRefresh={handleGetData}
+              />
+            }
           />
         </>
-      )}
+          )}
     </View>
   );
 }
