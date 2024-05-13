@@ -37,13 +37,15 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <Routes />
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <Routes />
 
-        <Toast />
-      </SafeAreaProvider>
-    </ThemeProvider>
+          <Toast />
+        </SafeAreaProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

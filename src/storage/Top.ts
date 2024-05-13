@@ -1,19 +1,22 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MMKV } from 'react-native-mmkv';
 
-import {red_top} from './Config';
+import { redtop } from './Config';
 
-export async function savePosts(posts) {
-  await AsyncStorage.setItem(red_top, JSON.stringify(posts));
+const storage = new MMKV();
+
+export function savePosts(posts) {
+  storage.set(redtop, JSON.stringify(posts));
 }
 
-export async function getPosts() {
-  const storage = await AsyncStorage.getItem(red_top);
+export function getPosts() {
+  const data = storage.getString(redtop);
 
-  const userData = storage ? JSON.parse(storage) : {};
+  const postData = data ? JSON.parse(data) : {};
 
-  return userData;
+  return postData;
 }
 
 export async function removePost() {
-  await AsyncStorage.removeItem(red_top);
+  await AsyncStorage.removeItem(redtop);
 }

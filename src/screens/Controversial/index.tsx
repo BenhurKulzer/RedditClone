@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, RefreshControl } from 'react-native';
 
 import { api } from '../../services/api';
-import { getPosts, savePosts } from '../../storage/New';
+import { getPosts, savePosts } from '../../storage/Hot';
 
 import Card from '../../components/Card';
 import Empty from '../../components/Empty';
 
 import { Container } from './styles';
 
-export function New() {
+export function Controversial() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,7 +22,7 @@ export function New() {
   async function handleFetchData() {
     try {
       setIsLoading(true);
-      const response = await api.get('r/pics/new.json');
+      const response = await api.get('r/pics/controversial.json');
 
       savePosts(response.data.data.children);
     } catch (error) {

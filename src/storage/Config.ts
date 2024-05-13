@@ -1,4 +1,4 @@
-export const red_hot = '@Reddit:hot';
-export const red_top = '@Reddit:top';
-export const red_popular = '@Reddit:popular';
-export const red_controversial = '@Reddit:controversial';
+export const redhot = '@Reddit:hot';
+export const redtop = '@Reddit:top';
+export const rednew = '@Reddit:new';
+export const redcontroversial = '@Reddit:controversial';

@@ -1,13 +1,13 @@
 import React from 'react';
 import WebView from 'react-native-webview';
-import {useRoute} from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 
 export function View() {
-  const {params} = useRoute();
+  const { params } = useRoute();
 
   return (
     <WebView
-      source={{uri: `https://reddit.com${params.url}`}}
+      source={{ uri: `https://reddit.com${params.url}` }}
       mixedContentMode="compatibility"
       cacheEnabled
     />

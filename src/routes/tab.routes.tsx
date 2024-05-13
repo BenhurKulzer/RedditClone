@@ -1,10 +1,10 @@
 import React from 'react';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import {Top} from '../screens/Top';
-import {Hot} from '../screens/Hot';
-import {New} from '../screens/New';
-import {Popular} from '../screens/Popular';
+import { Top } from '../screens/Top';
+import { Hot } from '../screens/Hot';
+import { New } from '../screens/New';
+import { Controversial } from '../screens/Controversial';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -17,7 +17,7 @@ export function MyTabs() {
 
       <Tab.Screen name="Hot" component={Hot} />
 
-      <Tab.Screen name="Controversial" component={Popular} />
+      <Tab.Screen name="Controversial" component={Controversial} />
     </Tab.Navigator>
   );
 }

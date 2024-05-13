@@ -1,16 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MMKV } from 'react-native-mmkv';
 
-import { redcontroversial } from './Config';
+import { rednew } from './Config';
 
 const storage = new MMKV();
 
 export function savePosts(posts) {
-  storage.set(redcontroversial, JSON.stringify(posts));
+  storage.set(rednew, JSON.stringify(posts));
 }
 
 export function getPosts() {
-  const data = storage.getString(redcontroversial);
+  const data = storage.getString(rednew);
 
   const postData = data ? JSON.parse(data) : {};
 
@@ -18,5 +18,5 @@ export function getPosts() {
 }
 
 export async function removePost() {
-  await AsyncStorage.removeItem(redcontroversial);
+  await AsyncStorage.removeItem(rednew);
 }
