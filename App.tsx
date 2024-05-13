@@ -18,7 +18,7 @@ function App() {
 
   ScreenGuardModule.register(
     {
-      backgroundColor: theme.COLORS.PRIMARY,
+      backgroundColor: theme.COLORS.SECONDARY,
       timeAfterResume: 2000
     }
   );

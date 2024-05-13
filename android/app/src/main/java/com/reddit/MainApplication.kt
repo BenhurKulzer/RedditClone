@@ -34,7 +34,6 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
-    window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.Layout.FLAG_SECURE)
     SoLoader.init(this, false)
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
