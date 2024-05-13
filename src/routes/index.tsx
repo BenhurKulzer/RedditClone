@@ -11,6 +11,7 @@ export function Routes() {
   const [isOnline, setIsOnline] = useState(false);
 
   useEffect(() => {
+    // Event listener who get the actual state of user internet connection
     addEventListener(state => {
       if (state.isConnected !== isOnline) {
         Toast.show({

@@ -4,6 +4,7 @@ import {
   initialWindowMetrics
 } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
+import ScreenGuardModule from 'react-native-screenguard';
 
 import { ThemeProvider } from 'styled-components';
 
@@ -14,6 +15,13 @@ import AnimatedSplashScreen from './src/components/Splash';
 
 function App() {
   const [splashAnimationFinished, setSplashAnimationFinished] = useState(false);
+
+  ScreenGuardModule.register(
+    {
+      backgroundColor: theme.COLORS.PRIMARY,
+      timeAfterResume: 2000
+    }
+  );
 
   const queryClient = new QueryClient({
     defaultOptions: {

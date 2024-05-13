@@ -8,13 +8,14 @@ import theme from '../../theme';
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
 const AnimatedSplashScreen = ({
-  onAnimationFinish = (isCancelled) => {}
+  onAnimationFinish = () => {}
 }: {
   onAnimationFinish?: (isCancelled: boolean) => void;
 }) => {
   const animation = useRef<LottieView>(null);
 
   return (
+    // SplashScreen View
     <View
       style={{
         flex: 1,
@@ -33,7 +34,6 @@ const AnimatedSplashScreen = ({
           width: '100%',
           height: '100%'
         }}
-        // eslint-disable-next-line no-undef
         source={require('./splash.json')}
       />
     </View>

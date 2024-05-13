@@ -1,8 +1,21 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { View } from '../screens/View';
 import { MyTabs } from './tab.routes';
+
+type ViewParams = {
+  url: string;
+  title: string;
+};
+
+type AppRoutesData = {
+  Home: undefined;
+  View: ViewParams;
+}
+
+export type StackNavigatorRoutesData =
+  NativeStackNavigationProp<AppRoutesData>;
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +31,14 @@ export function AppRoutes() {
       <Stack.Screen
         name="View"
         component={View}
-        options={({ route }) => ({ title: route.params?.title || 'reddit/r/pics', headerBackTitle: 'Back' })}
+        options={
+          ({ route }: { route: StackNavigationProp<AppRoutesData, 'View'> }) => (
+            {
+              title: route.params ? route.params.title : 'reddit/r/pics',
+              headerBackTitle: 'Back'
+            }
+          )
+        }
       />
     </Stack.Navigator>
   );

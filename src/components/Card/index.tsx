@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { formatDistanceToNow } from 'date-fns';
 
+import { StackNavigatorRoutesData } from '../../routes/app.routes';
+
 import {
   CardImage,
   CardInfoAuthor,
@@ -16,9 +18,8 @@ import {
 
 import { PostDTO } from '../../dtos/PostDTO';
 
-
 export default function Card({ data }: PostDTO) {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<StackNavigatorRoutesData>();
 
   const fallbackImg =
     'https://i.pinimg.com/736x/3a/0c/b1/3a0cb129f81e99e573807014327c1c4b.jpg';
